@@ -15,9 +15,17 @@ Linux
 bash# Install tools
 sudo apt-get install can-utils
 
-# Setup interface
-sudo slcand -o -c -s6 -S 115200 /dev/ttyUSB0 can0
+# Setup interface using UART(/dev/ttyUSBx)
+```
+sudo slcand -o -c -s5 -S 115200 /dev/ttyUSBx can0
 sudo ip link set up can0
+```
+
+# Setup interface using USB(/dev/ttyACMx)
+```
+sudo slcand -o -c -s5 /dev/ttyACMx can0
+sudo ip link set up can0
+```
 
 # Listen
 candump can0
